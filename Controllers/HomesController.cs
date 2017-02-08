@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using System;
+namespace FisherInsurance.Models{
 public class HomesController : Controller
 {
     public IActionResult Index()
@@ -8,6 +10,15 @@ public class HomesController : Controller
     }
     public IActionResult Quote()
     {
-        return Ok("This is the quote of the HomesController");
+        //return Ok("This is the quote of the HomesController");
+        Quote quote = new Quote
+         {
+           Id = 345,
+           Product = "Home Insurance",
+           ExpireDate = DateTime.Now.AddDays(45),
+           Price = 45.00M
+       };
+       return View(quote);
     }
+}
 }
